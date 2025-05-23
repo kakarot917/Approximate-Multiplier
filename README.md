@@ -1,266 +1,67 @@
-# Approximate-Multiplier
+# 4x4 Approximate Multiplier
 
-```
-# KERNEL: Starting testbench with mean relative error calculation...
-# KERNEL: Test A= 0, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 1 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 2 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 3 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 4 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 5 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 6 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 7 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 8 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B= 9 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=10 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=11 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=12 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=13 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=14 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 0, B=15 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 1, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 1, B= 1 | Approx=  1, Exact=  1 | RelError=0.0000
-# KERNEL: Test A= 1, B= 2 | Approx=  2, Exact=  2 | RelError=0.0000
-# KERNEL: Test A= 1, B= 3 | Approx=  3, Exact=  3 | RelError=0.0000
-# KERNEL: Test A= 1, B= 4 | Approx=  4, Exact=  4 | RelError=0.0000
-# KERNEL: Test A= 1, B= 5 | Approx=  5, Exact=  5 | RelError=0.0000
-# KERNEL: Test A= 1, B= 6 | Approx=  6, Exact=  6 | RelError=0.0000
-# KERNEL: Test A= 1, B= 7 | Approx=  7, Exact=  7 | RelError=0.0000
-# KERNEL: Test A= 1, B= 8 | Approx=  8, Exact=  8 | RelError=0.0000
-# KERNEL: Test A= 1, B= 9 | Approx=  9, Exact=  9 | RelError=0.0000
-# KERNEL: Test A= 1, B=10 | Approx= 10, Exact= 10 | RelError=0.0000
-# KERNEL: Test A= 1, B=11 | Approx= 11, Exact= 11 | RelError=0.0000
-# KERNEL: Test A= 1, B=12 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A= 1, B=13 | Approx= 13, Exact= 13 | RelError=0.0000
-# KERNEL: Test A= 1, B=14 | Approx= 14, Exact= 14 | RelError=0.0000
-# KERNEL: Test A= 1, B=15 | Approx= 15, Exact= 15 | RelError=0.0000
-# KERNEL: Test A= 2, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 2, B= 1 | Approx=  2, Exact=  2 | RelError=0.0000
-# KERNEL: Test A= 2, B= 2 | Approx=  4, Exact=  4 | RelError=0.0000
-# KERNEL: Test A= 2, B= 3 | Approx=  6, Exact=  6 | RelError=0.0000
-# KERNEL: Test A= 2, B= 4 | Approx=  8, Exact=  8 | RelError=0.0000
-# KERNEL: Test A= 2, B= 5 | Approx= 10, Exact= 10 | RelError=0.0000
-# KERNEL: Test A= 2, B= 6 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A= 2, B= 7 | Approx= 14, Exact= 14 | RelError=0.0000
-# KERNEL: Test A= 2, B= 8 | Approx= 16, Exact= 16 | RelError=0.0000
-# KERNEL: Test A= 2, B= 9 | Approx= 18, Exact= 18 | RelError=0.0000
-# KERNEL: Test A= 2, B=10 | Approx= 20, Exact= 20 | RelError=0.0000
-# KERNEL: Test A= 2, B=11 | Approx= 22, Exact= 22 | RelError=0.0000
-# KERNEL: Test A= 2, B=12 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A= 2, B=13 | Approx= 26, Exact= 26 | RelError=0.0000
-# KERNEL: Test A= 2, B=14 | Approx= 28, Exact= 28 | RelError=0.0000
-# KERNEL: Test A= 2, B=15 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A= 3, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 3, B= 1 | Approx=  3, Exact=  3 | RelError=0.0000
-# KERNEL: Test A= 3, B= 2 | Approx=  6, Exact=  6 | RelError=0.0000
-# KERNEL: Test A= 3, B= 3 | Approx=  7, Exact=  9 | RelError=22.0000
-# KERNEL: Test A= 3, B= 4 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A= 3, B= 5 | Approx= 15, Exact= 15 | RelError=0.0000
-# KERNEL: Test A= 3, B= 6 | Approx= 14, Exact= 18 | RelError=22.0000
-# KERNEL: Test A= 3, B= 7 | Approx= 15, Exact= 21 | RelError=28.0000
-# KERNEL: Test A= 3, B= 8 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A= 3, B= 9 | Approx= 27, Exact= 27 | RelError=0.0000
-# KERNEL: Test A= 3, B=10 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A= 3, B=11 | Approx= 31, Exact= 33 | RelError=6.0000
-# KERNEL: Test A= 3, B=12 | Approx= 28, Exact= 36 | RelError=22.0000
-# KERNEL: Test A= 3, B=13 | Approx= 31, Exact= 39 | RelError=20.0000
-# KERNEL: Test A= 3, B=14 | Approx= 30, Exact= 42 | RelError=28.0000
-# KERNEL: Test A= 3, B=15 | Approx= 31, Exact= 45 | RelError=31.0000
-# KERNEL: Test A= 4, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 4, B= 1 | Approx=  4, Exact=  4 | RelError=0.0000
-# KERNEL: Test A= 4, B= 2 | Approx=  8, Exact=  8 | RelError=0.0000
-# KERNEL: Test A= 4, B= 3 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A= 4, B= 4 | Approx= 16, Exact= 16 | RelError=0.0000
-# KERNEL: Test A= 4, B= 5 | Approx= 20, Exact= 20 | RelError=0.0000
-# KERNEL: Test A= 4, B= 6 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A= 4, B= 7 | Approx= 28, Exact= 28 | RelError=0.0000
-# KERNEL: Test A= 4, B= 8 | Approx= 32, Exact= 32 | RelError=0.0000
-# KERNEL: Test A= 4, B= 9 | Approx= 36, Exact= 36 | RelError=0.0000
-# KERNEL: Test A= 4, B=10 | Approx= 40, Exact= 40 | RelError=0.0000
-# KERNEL: Test A= 4, B=11 | Approx= 44, Exact= 44 | RelError=0.0000
-# KERNEL: Test A= 4, B=12 | Approx= 48, Exact= 48 | RelError=0.0000
-# KERNEL: Test A= 4, B=13 | Approx= 52, Exact= 52 | RelError=0.0000
-# KERNEL: Test A= 4, B=14 | Approx= 56, Exact= 56 | RelError=0.0000
-# KERNEL: Test A= 4, B=15 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A= 5, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 5, B= 1 | Approx=  5, Exact=  5 | RelError=0.0000
-# KERNEL: Test A= 5, B= 2 | Approx= 10, Exact= 10 | RelError=0.0000
-# KERNEL: Test A= 5, B= 3 | Approx= 15, Exact= 15 | RelError=0.0000
-# KERNEL: Test A= 5, B= 4 | Approx= 20, Exact= 20 | RelError=0.0000
-# KERNEL: Test A= 5, B= 5 | Approx= 21, Exact= 25 | RelError=16.0000
-# KERNEL: Test A= 5, B= 6 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A= 5, B= 7 | Approx= 31, Exact= 35 | RelError=11.0000
-# KERNEL: Test A= 5, B= 8 | Approx= 40, Exact= 40 | RelError=0.0000
-# KERNEL: Test A= 5, B= 9 | Approx= 45, Exact= 45 | RelError=0.0000
-# KERNEL: Test A= 5, B=10 | Approx= 42, Exact= 50 | RelError=16.0000
-# KERNEL: Test A= 5, B=11 | Approx= 47, Exact= 55 | RelError=14.0000
-# KERNEL: Test A= 5, B=12 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A= 5, B=13 | Approx= 61, Exact= 65 | RelError=6.0000
-# KERNEL: Test A= 5, B=14 | Approx= 62, Exact= 70 | RelError=11.0000
-# KERNEL: Test A= 5, B=15 | Approx= 63, Exact= 75 | RelError=16.0000
-# KERNEL: Test A= 6, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 6, B= 1 | Approx=  6, Exact=  6 | RelError=0.0000
-# KERNEL: Test A= 6, B= 2 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A= 6, B= 3 | Approx= 14, Exact= 18 | RelError=22.0000
-# KERNEL: Test A= 6, B= 4 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A= 6, B= 5 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A= 6, B= 6 | Approx= 28, Exact= 36 | RelError=22.0000
-# KERNEL: Test A= 6, B= 7 | Approx= 30, Exact= 42 | RelError=28.0000
-# KERNEL: Test A= 6, B= 8 | Approx= 48, Exact= 48 | RelError=0.0000
-# KERNEL: Test A= 6, B= 9 | Approx= 54, Exact= 54 | RelError=0.0000
-# KERNEL: Test A= 6, B=10 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A= 6, B=11 | Approx= 62, Exact= 66 | RelError=6.0000
-# KERNEL: Test A= 6, B=12 | Approx= 72, Exact= 72 | RelError=0.0000
-# KERNEL: Test A= 6, B=13 | Approx= 78, Exact= 78 | RelError=0.0000
-# KERNEL: Test A= 6, B=14 | Approx= 76, Exact= 84 | RelError=9.0000
-# KERNEL: Test A= 6, B=15 | Approx= 78, Exact= 90 | RelError=13.0000
-# KERNEL: Test A= 7, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 7, B= 1 | Approx=  7, Exact=  7 | RelError=0.0000
-# KERNEL: Test A= 7, B= 2 | Approx= 14, Exact= 14 | RelError=0.0000
-# KERNEL: Test A= 7, B= 3 | Approx= 15, Exact= 21 | RelError=28.0000
-# KERNEL: Test A= 7, B= 4 | Approx= 28, Exact= 28 | RelError=0.0000
-# KERNEL: Test A= 7, B= 5 | Approx= 31, Exact= 35 | RelError=11.0000
-# KERNEL: Test A= 7, B= 6 | Approx= 30, Exact= 42 | RelError=28.0000
-# KERNEL: Test A= 7, B= 7 | Approx= 31, Exact= 49 | RelError=36.0000
-# KERNEL: Test A= 7, B= 8 | Approx= 56, Exact= 56 | RelError=0.0000
-# KERNEL: Test A= 7, B= 9 | Approx= 63, Exact= 63 | RelError=0.0000
-# KERNEL: Test A= 7, B=10 | Approx= 62, Exact= 70 | RelError=11.0000
-# KERNEL: Test A= 7, B=11 | Approx= 63, Exact= 77 | RelError=18.0000
-# KERNEL: Test A= 7, B=12 | Approx= 76, Exact= 84 | RelError=9.0000
-# KERNEL: Test A= 7, B=13 | Approx= 79, Exact= 91 | RelError=13.0000
-# KERNEL: Test A= 7, B=14 | Approx= 78, Exact= 98 | RelError=20.0000
-# KERNEL: Test A= 7, B=15 | Approx= 79, Exact=105 | RelError=24.0000
-# KERNEL: Test A= 8, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 8, B= 1 | Approx=  8, Exact=  8 | RelError=0.0000
-# KERNEL: Test A= 8, B= 2 | Approx= 16, Exact= 16 | RelError=0.0000
-# KERNEL: Test A= 8, B= 3 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A= 8, B= 4 | Approx= 32, Exact= 32 | RelError=0.0000
-# KERNEL: Test A= 8, B= 5 | Approx= 40, Exact= 40 | RelError=0.0000
-# KERNEL: Test A= 8, B= 6 | Approx= 48, Exact= 48 | RelError=0.0000
-# KERNEL: Test A= 8, B= 7 | Approx= 56, Exact= 56 | RelError=0.0000
-# KERNEL: Test A= 8, B= 8 | Approx= 64, Exact= 64 | RelError=0.0000
-# KERNEL: Test A= 8, B= 9 | Approx= 72, Exact= 72 | RelError=0.0000
-# KERNEL: Test A= 8, B=10 | Approx= 80, Exact= 80 | RelError=0.0000
-# KERNEL: Test A= 8, B=11 | Approx= 88, Exact= 88 | RelError=0.0000
-# KERNEL: Test A= 8, B=12 | Approx= 96, Exact= 96 | RelError=0.0000
-# KERNEL: Test A= 8, B=13 | Approx=104, Exact=104 | RelError=0.0000
-# KERNEL: Test A= 8, B=14 | Approx=112, Exact=112 | RelError=0.0000
-# KERNEL: Test A= 8, B=15 | Approx=120, Exact=120 | RelError=0.0000
-# KERNEL: Test A= 9, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A= 9, B= 1 | Approx=  9, Exact=  9 | RelError=0.0000
-# KERNEL: Test A= 9, B= 2 | Approx= 18, Exact= 18 | RelError=0.0000
-# KERNEL: Test A= 9, B= 3 | Approx= 27, Exact= 27 | RelError=0.0000
-# KERNEL: Test A= 9, B= 4 | Approx= 36, Exact= 36 | RelError=0.0000
-# KERNEL: Test A= 9, B= 5 | Approx= 45, Exact= 45 | RelError=0.0000
-# KERNEL: Test A= 9, B= 6 | Approx= 54, Exact= 54 | RelError=0.0000
-# KERNEL: Test A= 9, B= 7 | Approx= 63, Exact= 63 | RelError=0.0000
-# KERNEL: Test A= 9, B= 8 | Approx= 72, Exact= 72 | RelError=0.0000
-# KERNEL: Test A= 9, B= 9 | Approx= 73, Exact= 81 | RelError=9.0000
-# KERNEL: Test A= 9, B=10 | Approx= 90, Exact= 90 | RelError=0.0000
-# KERNEL: Test A= 9, B=11 | Approx= 91, Exact= 99 | RelError=8.0000
-# KERNEL: Test A= 9, B=12 | Approx=108, Exact=108 | RelError=0.0000
-# KERNEL: Test A= 9, B=13 | Approx=109, Exact=117 | RelError=6.0000
-# KERNEL: Test A= 9, B=14 | Approx=126, Exact=126 | RelError=0.0000
-# KERNEL: Test A= 9, B=15 | Approx=127, Exact=135 | RelError=5.0000
-# KERNEL: Test A=10, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=10, B= 1 | Approx= 10, Exact= 10 | RelError=0.0000
-# KERNEL: Test A=10, B= 2 | Approx= 20, Exact= 20 | RelError=0.0000
-# KERNEL: Test A=10, B= 3 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A=10, B= 4 | Approx= 40, Exact= 40 | RelError=0.0000
-# KERNEL: Test A=10, B= 5 | Approx= 42, Exact= 50 | RelError=16.0000
-# KERNEL: Test A=10, B= 6 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A=10, B= 7 | Approx= 62, Exact= 70 | RelError=11.0000
-# KERNEL: Test A=10, B= 8 | Approx= 80, Exact= 80 | RelError=0.0000
-# KERNEL: Test A=10, B= 9 | Approx= 90, Exact= 90 | RelError=0.0000
-# KERNEL: Test A=10, B=10 | Approx=100, Exact=100 | RelError=0.0000
-# KERNEL: Test A=10, B=11 | Approx=110, Exact=110 | RelError=0.0000
-# KERNEL: Test A=10, B=12 | Approx=120, Exact=120 | RelError=0.0000
-# KERNEL: Test A=10, B=13 | Approx=122, Exact=130 | RelError=6.0000
-# KERNEL: Test A=10, B=14 | Approx= 76, Exact=140 | RelError=45.0000
-# KERNEL: Test A=10, B=15 | Approx= 78, Exact=150 | RelError=48.0000
-# KERNEL: Test A=11, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=11, B= 1 | Approx= 11, Exact= 11 | RelError=0.0000
-# KERNEL: Test A=11, B= 2 | Approx= 22, Exact= 22 | RelError=0.0000
-# KERNEL: Test A=11, B= 3 | Approx= 31, Exact= 33 | RelError=6.0000
-# KERNEL: Test A=11, B= 4 | Approx= 44, Exact= 44 | RelError=0.0000
-# KERNEL: Test A=11, B= 5 | Approx= 47, Exact= 55 | RelError=14.0000
-# KERNEL: Test A=11, B= 6 | Approx= 62, Exact= 66 | RelError=6.0000
-# KERNEL: Test A=11, B= 7 | Approx= 63, Exact= 77 | RelError=18.0000
-# KERNEL: Test A=11, B= 8 | Approx= 88, Exact= 88 | RelError=0.0000
-# KERNEL: Test A=11, B= 9 | Approx= 91, Exact= 99 | RelError=8.0000
-# KERNEL: Test A=11, B=10 | Approx=110, Exact=110 | RelError=0.0000
-# KERNEL: Test A=11, B=11 | Approx=111, Exact=121 | RelError=8.0000
-# KERNEL: Test A=11, B=12 | Approx=124, Exact=132 | RelError=6.0000
-# KERNEL: Test A=11, B=13 | Approx=127, Exact=143 | RelError=11.0000
-# KERNEL: Test A=11, B=14 | Approx= 78, Exact=154 | RelError=49.0000
-# KERNEL: Test A=11, B=15 | Approx= 79, Exact=165 | RelError=52.0000
-# KERNEL: Test A=12, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=12, B= 1 | Approx= 12, Exact= 12 | RelError=0.0000
-# KERNEL: Test A=12, B= 2 | Approx= 24, Exact= 24 | RelError=0.0000
-# KERNEL: Test A=12, B= 3 | Approx= 28, Exact= 36 | RelError=22.0000
-# KERNEL: Test A=12, B= 4 | Approx= 48, Exact= 48 | RelError=0.0000
-# KERNEL: Test A=12, B= 5 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A=12, B= 6 | Approx= 72, Exact= 72 | RelError=0.0000
-# KERNEL: Test A=12, B= 7 | Approx= 76, Exact= 84 | RelError=9.0000
-# KERNEL: Test A=12, B= 8 | Approx= 96, Exact= 96 | RelError=0.0000
-# KERNEL: Test A=12, B= 9 | Approx=108, Exact=108 | RelError=0.0000
-# KERNEL: Test A=12, B=10 | Approx=120, Exact=120 | RelError=0.0000
-# KERNEL: Test A=12, B=11 | Approx=124, Exact=132 | RelError=6.0000
-# KERNEL: Test A=12, B=12 | Approx= 80, Exact=144 | RelError=44.0000
-# KERNEL: Test A=12, B=13 | Approx= 92, Exact=156 | RelError=41.0000
-# KERNEL: Test A=12, B=14 | Approx=104, Exact=168 | RelError=38.0000
-# KERNEL: Test A=12, B=15 | Approx=108, Exact=180 | RelError=40.0000
-# KERNEL: Test A=13, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=13, B= 1 | Approx= 13, Exact= 13 | RelError=0.0000
-# KERNEL: Test A=13, B= 2 | Approx= 26, Exact= 26 | RelError=0.0000
-# KERNEL: Test A=13, B= 3 | Approx= 31, Exact= 39 | RelError=20.0000
-# KERNEL: Test A=13, B= 4 | Approx= 52, Exact= 52 | RelError=0.0000
-# KERNEL: Test A=13, B= 5 | Approx= 61, Exact= 65 | RelError=6.0000
-# KERNEL: Test A=13, B= 6 | Approx= 78, Exact= 78 | RelError=0.0000
-# KERNEL: Test A=13, B= 7 | Approx= 79, Exact= 91 | RelError=13.0000
-# KERNEL: Test A=13, B= 8 | Approx=104, Exact=104 | RelError=0.0000
-# KERNEL: Test A=13, B= 9 | Approx=109, Exact=117 | RelError=6.0000
-# KERNEL: Test A=13, B=10 | Approx=122, Exact=130 | RelError=6.0000
-# KERNEL: Test A=13, B=11 | Approx=127, Exact=143 | RelError=11.0000
-# KERNEL: Test A=13, B=12 | Approx= 92, Exact=156 | RelError=41.0000
-# KERNEL: Test A=13, B=13 | Approx= 93, Exact=169 | RelError=44.0000
-# KERNEL: Test A=13, B=14 | Approx=110, Exact=182 | RelError=39.0000
-# KERNEL: Test A=13, B=15 | Approx=111, Exact=195 | RelError=43.0000
-# KERNEL: Test A=14, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=14, B= 1 | Approx= 14, Exact= 14 | RelError=0.0000
-# KERNEL: Test A=14, B= 2 | Approx= 28, Exact= 28 | RelError=0.0000
-# KERNEL: Test A=14, B= 3 | Approx= 30, Exact= 42 | RelError=28.0000
-# KERNEL: Test A=14, B= 4 | Approx= 56, Exact= 56 | RelError=0.0000
-# KERNEL: Test A=14, B= 5 | Approx= 62, Exact= 70 | RelError=11.0000
-# KERNEL: Test A=14, B= 6 | Approx= 76, Exact= 84 | RelError=9.0000
-# KERNEL: Test A=14, B= 7 | Approx= 78, Exact= 98 | RelError=20.0000
-# KERNEL: Test A=14, B= 8 | Approx=112, Exact=112 | RelError=0.0000
-# KERNEL: Test A=14, B= 9 | Approx=126, Exact=126 | RelError=0.0000
-# KERNEL: Test A=14, B=10 | Approx= 76, Exact=140 | RelError=45.0000
-# KERNEL: Test A=14, B=11 | Approx= 78, Exact=154 | RelError=49.0000
-# KERNEL: Test A=14, B=12 | Approx=104, Exact=168 | RelError=38.0000
-# KERNEL: Test A=14, B=13 | Approx=110, Exact=182 | RelError=39.0000
-# KERNEL: Test A=14, B=14 | Approx=124, Exact=196 | RelError=36.0000
-# KERNEL: Test A=14, B=15 | Approx=126, Exact=210 | RelError=40.0000
-# KERNEL: Test A=15, B= 0 | Approx=  0, Exact=  0 | RelError=0.0000
-# KERNEL: Test A=15, B= 1 | Approx= 15, Exact= 15 | RelError=0.0000
-# KERNEL: Test A=15, B= 2 | Approx= 30, Exact= 30 | RelError=0.0000
-# KERNEL: Test A=15, B= 3 | Approx= 31, Exact= 45 | RelError=31.0000
-# KERNEL: Test A=15, B= 4 | Approx= 60, Exact= 60 | RelError=0.0000
-# KERNEL: Test A=15, B= 5 | Approx= 63, Exact= 75 | RelError=16.0000
-# KERNEL: Test A=15, B= 6 | Approx= 78, Exact= 90 | RelError=13.0000
-# KERNEL: Test A=15, B= 7 | Approx= 79, Exact=105 | RelError=24.0000
-# KERNEL: Test A=15, B= 8 | Approx=120, Exact=120 | RelError=0.0000
-# KERNEL: Test A=15, B= 9 | Approx=127, Exact=135 | RelError=5.0000
-# KERNEL: Test A=15, B=10 | Approx= 78, Exact=150 | RelError=48.0000
-# KERNEL: Test A=15, B=11 | Approx= 79, Exact=165 | RelError=52.0000
-# KERNEL: Test A=15, B=12 | Approx=108, Exact=180 | RelError=40.0000
-# KERNEL: Test A=15, B=13 | Approx=111, Exact=195 | RelError=43.0000
-# KERNEL: Test A=15, B=14 | Approx=126, Exact=210 | RelError=40.0000
-# KERNEL: Test A=15, B=15 | Approx=127, Exact=225 | RelError=43.0000
-# KERNEL: Mean Relative Error: 7.80%
-# RUNTIME: Info: RUNTIME_0070 testbench.sv (65): $stop called.
-# KERNEL: Time: 256 ns,  Iteration: 0,  Instance: /multiplier_tb,  Process: @INITIAL#22_0@.
-# KERNEL: Stopped at time 256 ns + 0.
-# VSIM: Simulation has finished.
-```
+## Overview
+
+This project implements a 4x4-bit **approximate multiplier** in Verilog, designed to reduce hardware area and power consumption while maintaining high computational accuracy (Mean Relative Error, MRE < 15%). The design is suited for error-tolerant applications such as image processing and neural networks.
+
+A testbench is provided to evaluate the mean relative error (MRE) across all possible input combinations.
+
+---
+
+## Approximation Technique
+
+The multiplier uses a hybrid approach:
+
+- **Lower-part OR Adder (LOA):**  
+  The two least significant output bits are generated using OR gates instead of full adders. This reduces logic complexity and power consumption with minimal impact on overall accuracy.
+
+- **Segmented Accurate Addition:**  
+  For more significant bits, a segmented accurate adder is used. This balances the trade-off between accuracy and hardware savings.
+
+- **No Carry Propagation from LSBs:**  
+  Carries from the lower bits are not propagated to higher bits, further simplifying the design and reducing power.
+
+This combination is inspired by techniques such as BIC/LOA and speculative adders, as discussed in recent literature on approximate arithmetic circuits.
+
+---
+
+## Files
+
+- `approx_mult4x4.v`  
+  Verilog module implementing the 4x4 approximate multiplier.
+
+- `multiplier_tb.v`  
+  Testbench that exhaustively tests all input combinations and computes the mean relative error (MRE).
+
+- `eda_playground_log.txt`  
+  Output log from EDA Playground, showing simulation results and MRE.
+
+---
+
+## How It Works
+
+1. **Multiplier Module:**  
+   - Inputs: 4-bit operands `A` and `B`
+   - Output: 8-bit approximate product `result`
+   - Uses a mix of OR logic and accurate addition for different output bits.
+
+2. **Testbench:**  
+   - Loops through all 256 combinations of A and B.
+   - Compares the approximate result to the exact product.
+   - Calculates and prints the mean relative error (MRE).
+
+---
+
+## Power and Utilization Information
+
+**Note:**  
+Due to the limitations of using a Mac and the online EDA Playground environment, **power consumption and FPGA resource utilization (LUTs, IOBs, etc.) could not be measured directly**. These metrics typically require FPGA vendor tools such as Xilinx Vivado or Intel Quartus, which are not natively supported on macOS and are not available on EDA Playground.
+
+- **Why not available?**
+  - EDA Playground supports simulation only, not synthesis or implementation.
+  - Power and utilization reports require mapping the design to a specific FPGA device, which is not possible in this setup.
+
+**What is provided instead:**  
+- The attached `eda_playground_log.txt` contains simulation results and the computed mean relative error, demonstrating the functional correctness and approximation quality of the design.
+
+
