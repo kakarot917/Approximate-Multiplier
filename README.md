@@ -64,4 +64,10 @@ Due to the limitations of using a Mac and the online EDA Playground environment,
 **What is provided instead:**  
 - The attached `eda_playground_log.txt` contains simulation results and the computed mean relative error, demonstrating the functional correctness and approximation quality of the design.
 
+## Results
 
+- **Mean Relative Error (MRE):**  
+  The design was simulated across all 256 input combinations on EDA Playground.  
+  **Final measured MRE:** **7.80%**
+
+  This result demonstrates that the approximation technique provides a strong balance between accuracy and hardware efficiency, staying well below the 15% MRE target.
